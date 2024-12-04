@@ -1,8 +1,8 @@
 version: '3'
 services:
-  nemo:
+  nemo-24.09:
     image: nvcr.io/nvidia/nemo:24.09
-    container_name: nemo
+    container_name: nemo-24.09
     runtime: nvidia
     volumes:
       - ../DreamFusion:/workspace/DreamFusion
@@ -14,3 +14,19 @@ services:
     ipc: host
     tty: true
     stdin_open: true
+
+  nemo-dev:
+    image: nvcr.io/nvidia/nemo:dev
+    container_name: nemo-dev
+    runtime: nvidia
+    volumes:
+      - ../DreamFusion:/workspace/DreamFusion
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    ulimits:
+      memlock: -1
+      stack: 67108864
+    ipc: host
+    tty: true
+    stdin_open: true
+
