@@ -1,0 +1,15 @@
+version: '3'
+services:
+  nemo:
+    image: nvcr.io/nvidia/nemo:24.09
+    runtime: nvidia
+    volumes:
+      - ../DreamFusion:/workspace/DreamFusion
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    ulimits:
+      memlock: -1
+      stack: 67108864
+    ipc: host
+    tty: true
+    stdin_open: true
