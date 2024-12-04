@@ -2,6 +2,7 @@ version: '3'
 services:
   nemo:
     image: nvcr.io/nvidia/nemo:24.09
+    container_name: nemo
     runtime: nvidia
     volumes:
       - ../DreamFusion:/workspace/DreamFusion
